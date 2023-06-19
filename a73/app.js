@@ -1,0 +1,41 @@
+/*  Object.values
+    Object.entries
+    Object.assign(des, any)
+    Object.getOwnPropertyDescriptor(o, 'prop')
+    ... (spread)
+*/
+
+/* 
+    Já vimos...
+    Object.keys(Retorna chaves)
+    Object.freeze(Trava/Congela o Objeto)
+    Object.defineProperties(Define várias propriedades)
+    Object.defineProperty(Define uma propriedade)
+*/
+const produto = {nome: 'Caneca', preco: 10.50};
+const outraCoisa = produto
+
+produto.nome = 'Xícara' 
+/* console.log(outraCoisa) */
+
+/* 
+    nome da variável -> valor...
+
+    produto.nome -> Caneca <- outraCoisa.nome
+    //ao mudar produto.nome, você muda o valor para o qual a seta aponta
+    //isso vale para as consts tambem, você pode alterar o VALOR que a seta esta apontando, e não a DIREÇÃO da seta
+    //para mudar essa condição, usamos Spread Operator (Spread = Espalhar), serve para variáveis, arrays, objetos
+    */
+
+const outraOutraCoisa = {
+    ...produto,
+    material:'Porcelana',
+    feedback: function(valor){
+        return(`A nota do produto é: ${valor}`)
+    }
+}
+outraOutraCoisa.nome = 'Pires'
+
+console.log(produto.nome, outraOutraCoisa.nome)
+console.log(`Feitas de: ${outraOutraCoisa.material}`)
+console.log(`${outraOutraCoisa.feedback('5.0*')}`)
