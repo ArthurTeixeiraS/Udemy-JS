@@ -31,5 +31,8 @@ pessoa1.getDataNasc = function(){
 }
 console.log(pessoa1.getDataNasc())
 
+for (let chave in pessoa1){
+    console.log(pessoa1[chave])
+}
 
 
