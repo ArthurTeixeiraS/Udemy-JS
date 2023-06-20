@@ -1,7 +1,7 @@
 /*  Object.values
     Object.entries
-    Object.assign(des, any)
-    Object.getOwnPropertyDescriptor(o, 'prop')
+    Object.assign(destino, any)
+    Object.getOwnPropertyDescriptor(objeto, propriedade)
     ... (spread)
 */
 
@@ -36,6 +36,31 @@ const outraOutraCoisa = {
 }
 outraOutraCoisa.nome = 'Pires'
 
-console.log(produto.nome, outraOutraCoisa.nome)
-console.log(`Feitas de: ${outraOutraCoisa.material}`)
-console.log(`${outraOutraCoisa.feedback('5.0*')}`)
+/* console.log(produto.nome, outraOutraCoisa.nome)
+console.log(`Feitas de: ${outraOutraCoisa.material}`) */
+/* console.log(`${outraOutraCoisa.feedback('5.0*')}`) */
+      
+//                        obj inicial  obj clonado  adicionais..
+const caneca = Object.assign({}, produto, {categoria:'Louça'}) //clona e assimila os objetos
+console.log(caneca)
+/* console.log(Object.keys(caneca)) */
+/* Object.freeze(caneca) */
+
+
+Object.defineProperty(caneca, 'nome', {
+    writable:false,
+    configurable: false,
+    value:'Colher'
+})
+console.log(Object.getOwnPropertyDescriptor(caneca, 'nome'))
+/* console.log(caneca.nome) */
+
+/* console.log(Object.values(caneca))
+console.log(Object.entries(caneca)) */
+
+for(let [chave, valor] of Object.entries(caneca)){ //desestruturando array devolvido
+    console.log(chave, valor)
+}
+
+
+
