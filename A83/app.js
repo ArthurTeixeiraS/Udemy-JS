@@ -61,4 +61,4 @@ const p1 = new Pessoa('Arthur', 'Teixeira');
 p1.nomeCompleto = 'Bruno Miguel Fernandes'
 console.log(p1.nomeCompleto)
 console.log(p1.nome)
-console.log(p1.sobrenome)
+console.log(p1.sobrenome)//aaaa
