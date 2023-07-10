@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <script src="./assets/js/cpfCheck.js" defer></script>
+    <script src="./assets/js/formCheck.js" defer></script>
+    <script src="./assets/js/main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="container">
+        <h1>Formulário de Cadastro</h1>
+        <p><ul>
+            <li>Nenhum campo pode estar vazio</li>
+            <li>Usuário só pode conter letras e/ou números</li>
+            <li>Usuário deverá ter entre 3 e 12 caracteres</li>
+            <li>Senha precisa ter entre 6 e 12 caracteres</li>
+        </ul></p>
+        <form class="formulario" action="https://formsubmit.co/arthurteixeiraserafim@gmail.com" method="POST" data-form>
+            <label for="input-teste-1">Nome</label>
+            <input name="nome" type="text" id="input-teste-1" class="validar" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
+            
+            <label for="input-teste-2">Sobrenome</label>
+            <input name="sobrenome" type="text" id="input-teste-2" class="validar" pattern="[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$">
+            
+            <label for="input-teste-3">CPF</label>
+            <input name="cpf" type="text" id="input-teste-3" class="validar cpf">
+            
+            <label for="input-teste-4">Usuário</label>
+            <input name="user" type="text" id="input-teste-4" class="validar usuario">
+            
+            <label for="input-teste-5">Senha</label>
+            <input name="senha" type="password" id="input-teste-5" class="validar senha">
+            
+            <label for="input-teste-6">Repetir Senha</label>
+            <input name="senha2" type="password" id="input-teste-6" class="validar repetirSenha">
+            <button type="submit" data-button>Enviar</button>
+        </form>
+    </section>
+    
+</body>
+</html>
