@@ -1,10 +1,11 @@
-class Pessoa {
-    constructor(nome, idade){
-        this.nome = nome,
-        this.idade = idade
+class Pessoa{
+    constructor(nome, idade, sexo){
+       const data = new Date()
+       this.nome = nome,
+       this.idade = idade,
+       this.datanasc = data.getFullYear() - idade,
+       this.sexo = sexo
     }
 }
-const p1 = new Pessoa('Arthur', 17)
-console.log(p1)
-console.log(p1.nome)
-console.log(p1.nome.toUpperCase())
+const p1 = new Pessoa('Arthur', 17, 'Masculino')
+console.log(p1.datanasc)
