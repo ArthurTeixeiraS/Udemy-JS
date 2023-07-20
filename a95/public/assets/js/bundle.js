@@ -109,16 +109,23 @@ var NewCPF = /*#__PURE__*/function () {
     value: function rand() {
       var min = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 100000000;
       var max = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 999999999;
-      return String(Math.floor(Math.random() * (max - min) + min));
+      return String(Math.floor(Math.random() * (max - min) + min)); //gera uma sequencia de 9 numeros randomicos
+    }
+  }, {
+    key: "format",
+    value: function format(cpf) {
+      //formata o cpf para o formato  '000.000.000-00'
+      return cpf.slice(0, 3) + '.' + cpf.slice(3, 6) + '.' + cpf.slice(6, 9) + '-' + cpf.slice(9, 11);
     }
   }, {
     key: "generateNewCPF",
     value: function generateNewCPF() {
+      //gera o novo cpf e retorna se for verdadeiro, com base no modulo 'ValidCPF'
       var noDigitCPF = this.rand();
       var digit1 = _CpfValid__WEBPACK_IMPORTED_MODULE_0__["default"].generateDigit(noDigitCPF);
       var digit2 = _CpfValid__WEBPACK_IMPORTED_MODULE_0__["default"].generateDigit(noDigitCPF + digit1);
       var newCPF = noDigitCPF + digit1 + digit2;
-      return newCPF;
+      return this.format(newCPF);
     }
   }]);
   return NewCPF;
@@ -196,9 +203,18 @@ form button:hover{
     background-color: var(--primary-color-darker);
 }
 section div{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
-`, "",{"version":3,"sources":["webpack://./public/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,qCAAqC;AACzC;AACA;IACI,sBAAsB;IACtB,UAAU;AACd;AACA;IACI,SAAS;IACT,UAAU;IACV,sCAAsC;IACtC,oCAAoC;IACpC,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,sBAAsB;IACtB,aAAa;IACb,mBAAmB;AACvB;AACA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;AACA;IACI,eAAe;IACf,YAAY;IACZ,eAAe;AACnB;AACA;IACI,uCAAuC;AAC3C;AACA;IACI,YAAY;IACZ,sCAAsC;IACtC,WAAW;IACX,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,gBAAgB;AACpB;AACA;IACI,6CAA6C;AACjD;AACA;IACI,mBAAmB;AACvB","sourcesContent":[":root {\r\n    --primary-color:rgb(13, 106, 136);\r\n    --primary-color-darker:rgb(9, 48, 56);\r\n}\r\n*{\r\n    box-sizing: border-box;\r\n    outline: 0;\r\n}\r\nbody{\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: var(--primary-color);\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n.container{\r\n    max-width: 640px;\r\n    margin: 50px auto;\r\n    background-color: #fff;\r\n    padding: 20px;\r\n    border-radius: 10px;\r\n}\r\nform input, form label, form button{\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px;\r\n}\r\nform input{\r\n    font-size: 24px;\r\n    height: 50px;\r\n    padding: 0 20px;\r\n}\r\nform input:focus{\r\n    outline: 1px solid var(--primary-color);\r\n}\r\nform button{\r\n    border: none;\r\n    background-color: var(--primary-color);\r\n    color: #fff;\r\n    font-size: 18px;\r\n    font-weight: 700;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    margin-top: 30px;\r\n}\r\nform button:hover{\r\n    background-color: var(--primary-color-darker);\r\n}\r\nsection div{\r\n    margin-bottom: 10px;\r\n}\r\n"],"sourceRoot":""}]);
+.container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 40px;
+}
+`, "",{"version":3,"sources":["webpack://./public/assets/css/style.css"],"names":[],"mappings":"AAAA;IACI,iCAAiC;IACjC,qCAAqC;AACzC;AACA;IACI,sBAAsB;IACtB,UAAU;AACd;AACA;IACI,SAAS;IACT,UAAU;IACV,sCAAsC;IACtC,oCAAoC;IACpC,gBAAgB;IAChB,kBAAkB;AACtB;AACA;IACI,gBAAgB;IAChB,iBAAiB;IACjB,sBAAsB;IACtB,aAAa;IACb,mBAAmB;AACvB;AACA;IACI,cAAc;IACd,WAAW;IACX,mBAAmB;AACvB;AACA;IACI,eAAe;IACf,YAAY;IACZ,eAAe;AACnB;AACA;IACI,uCAAuC;AAC3C;AACA;IACI,YAAY;IACZ,sCAAsC;IACtC,WAAW;IACX,eAAe;IACf,gBAAgB;IAChB,YAAY;IACZ,eAAe;IACf,gBAAgB;AACpB;AACA;IACI,6CAA6C;AACjD;AACA;IACI,mBAAmB;IACnB,iBAAiB;IACjB,kBAAkB;IAClB,iBAAiB;IACjB,mBAAmB;AACvB;AACA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,eAAe;AACnB","sourcesContent":[":root {\r\n    --primary-color:rgb(13, 106, 136);\r\n    --primary-color-darker:rgb(9, 48, 56);\r\n}\r\n*{\r\n    box-sizing: border-box;\r\n    outline: 0;\r\n}\r\nbody{\r\n    margin: 0;\r\n    padding: 0;\r\n    background-color: var(--primary-color);\r\n    font-family: 'Open sans', sans-serif;\r\n    font-size: 1.3em;\r\n    line-height: 1.5em;\r\n}\r\n.container{\r\n    max-width: 640px;\r\n    margin: 50px auto;\r\n    background-color: #fff;\r\n    padding: 20px;\r\n    border-radius: 10px;\r\n}\r\nform input, form label, form button{\r\n    display: block;\r\n    width: 100%;\r\n    margin-bottom: 10px;\r\n}\r\nform input{\r\n    font-size: 24px;\r\n    height: 50px;\r\n    padding: 0 20px;\r\n}\r\nform input:focus{\r\n    outline: 1px solid var(--primary-color);\r\n}\r\nform button{\r\n    border: none;\r\n    background-color: var(--primary-color);\r\n    color: #fff;\r\n    font-size: 18px;\r\n    font-weight: 700;\r\n    height: 50px;\r\n    cursor: pointer;\r\n    margin-top: 30px;\r\n}\r\nform button:hover{\r\n    background-color: var(--primary-color-darker);\r\n}\r\nsection div{\r\n    margin-bottom: 20px;\r\n    font-size: 1.5rem;\r\n    text-align: center;\r\n    font-weight: bold;\r\n    letter-spacing: 5px;\r\n}\r\n.container h1 {\r\n    text-align: center;\r\n    margin-bottom: 30px;\r\n    font-size: 40px;\r\n}\r\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
