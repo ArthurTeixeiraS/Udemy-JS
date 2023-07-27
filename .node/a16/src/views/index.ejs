@@ -1,0 +1,27 @@
+<%- include('includes/head')%>
+<body>
+    <section class="container">
+
+        <h1>
+            <!-- Sem sinal: controle de fluxo -->
+            <!-- o = é mais seguro pois previne tags padrão HTML --> 
+            <% if(typeof titulo !== 'undefined') { %>
+                 <%-titulo %>
+            <% } else { %>
+               O titulo não foi enviado. 
+            <% } %>   
+
+            <%# numeros.forEach(num => { %>
+                <%#=num%>
+            <%# }); %>
+        </h1>
+
+        <form action="/" method="post">
+        <label>Cliente</label>
+        <input type="text" name="cliente">
+        <button>Submit</button>
+        </form>
+    </section>
+    
+</body>
+</html>
